@@ -7,6 +7,7 @@
 	import VS from "$lib/components/VS.svelte";
 	import ScoreModal from "$lib/components/ScoreModal.svelte";
 	import PendingCity from "$lib/components/PendingCity.svelte";
+	import Head from "$lib/components/Head.svelte";
 
 	let score = 0;
 	let history = ["", "", "", "", ""];
@@ -53,6 +54,7 @@
 	};
 </script>
 
+<Head />
 {#if left && right}
 	<Score {score} />
 	<VS />
