@@ -5,11 +5,19 @@
 	import RightCity from "$lib/components/RightCity.svelte";
 	import Score from "$lib/components/Score.svelte";
 	import VS from "$lib/components/VS.svelte";
+	import ScoreModal from "$lib/components/ScoreModal.svelte";
 
 	let score = 0;
 	let history = ["", "", "", "", ""];
+	let isScoreModalShown = false;
 	let left: City | null = null;
 	let right: City | null = null;
+
+	const goToMenu = () => {
+		isScoreModalShown = false;
+		left = null;
+		right = null;
+	};
 
 	const nextTurn = async () => {
 		if (!left || !right) return;
@@ -20,6 +28,7 @@
 	};
 
 	const start = async () => {
+		isScoreModalShown = false;
 		score = 0;
 		left = (await getCity(history)) ?? null;
 		right = (await getCity(history)) ?? null;
@@ -28,17 +37,15 @@
 	const handleHotterClick = async () => {
 		if (!left || !right) return;
 
-		if (right.celsius > left.celsius) return await nextTurn();
-		left = null;
-		right = null;
+		if (right.celsius >= left.celsius) return await nextTurn();
+		isScoreModalShown = true;
 	};
 
 	const handleColderClick = async () => {
 		if (!left || !right) return;
 
-		if (right.celsius < left.celsius) return await nextTurn();
-		left = null;
-		right = null;
+		if (right.celsius <= left.celsius) return await nextTurn();
+		isScoreModalShown = true;
 	};
 </script>
 
@@ -60,7 +67,10 @@
 		<button
 			on:click={start}
 			class="text-white py-2 px-10 rounded font-medium uppercase text-2xl border-2 border-green-200 transition-colors hover:bg-green-200 hover:text-black"
-			>Start</button
+			>Play</button
 		>
 	</div>
+{/if}
+{#if isScoreModalShown}
+	<ScoreModal {score} {start} {goToMenu} />
 {/if}
