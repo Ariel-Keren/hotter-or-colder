@@ -3,7 +3,7 @@
 </script>
 
 <p
-	class="absolute top-3 left-1/2 -translate-x-1/2 text-gray-200 font-medium text-xl uppercase bg-gray-950 rounded p-3"
+	class="absolute top-3 left-1/2 -translate-x-1/2 text-gray-200 font-medium text-xl uppercase bg-gray-950 rounded p-3 bg-opacity-80"
 >
 	Score: {score}
 </p>

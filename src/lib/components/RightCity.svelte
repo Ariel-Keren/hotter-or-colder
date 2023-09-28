@@ -17,12 +17,12 @@
 	<div class="flex flex-col gap-1">
 		<button
 			on:click={handleHotterClick}
-			class="bg-gray-950 text-white font-medium uppercase h-10 w-32 rounded hover:border-2 border-red-200 transition-colors hover:bg-gray-800"
+			class="bg-gray-950 text-white font-medium uppercase h-10 w-32 rounded hover:border-2 border-red-200 bg-opacity-80 transition-colors hover:bg-gray-800"
 			>🔥 Hotter</button
 		>
 		<button
 			on:click={handleColderClick}
-			class="bg-gray-950 text-white font-medium uppercase h-10 w-32 rounded hover:border-2 border-blue-200 transition-colors hover:bg-gray-800"
+			class="bg-gray-950 text-white font-medium uppercase h-10 w-32 rounded hover:border-2 border-blue-200 bg-opacity-80 transition-colors hover:bg-gray-800"
 			>❄️ Colder</button
 		>
 	</div>
