@@ -1,7 +1,12 @@
 <script lang="ts">
 	import type City from "$lib/types";
+	import isCelsius from "$lib/isCelsiusStore";
 
 	export let city: City;
+
+	const changeUnits = () => {
+		$isCelsius = !$isCelsius;
+	};
 </script>
 
 <div
@@ -12,7 +17,10 @@
 		<h2 class="text-white font-medium text-4xl">{city.city}</h2>
 		<h3 class="text-gray-500 font-medium text-xl">{city.country}</h3>
 	</div>
-	<p class="text-white text-5xl font-bold p-9">
-		{city.celsius}°C
-	</p>
+	<button
+		on:click={changeUnits}
+		class="text-white text-5xl font-bold m-6 p-3 rounded hover:bg-opacity-5 hover:bg-white"
+	>
+		{$isCelsius ? `${city.celsius}°C` : `${city.fahrenheit}°F`}
+	</button>
 </div>

@@ -1,43 +1,28 @@
 <script lang="ts">
 	import type City from "$lib/types";
-	import getRandomCity from "$lib/getRandomCity";
+	import getCity from "$lib/getCity";
 	import LeftCity from "$lib/components/LeftCity.svelte";
 	import RightCity from "$lib/components/RightCity.svelte";
 	import Score from "$lib/components/Score.svelte";
 	import VS from "$lib/components/VS.svelte";
 
 	let score = 0;
-	// let left: City | null = null;
-	// let right: City | null = null;
-	let left: City | null = {
-		city: "New York City",
-		country: "US",
-		image:
-			"https://images.unsplash.com/photo-1585155967849-91c736589c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
-		celsius: 13.3,
-		fahrenheit: 55.9
-	};
-	let right: City | null = {
-		city: "Singapore",
-		country: "Singapore",
-		image:
-			"https://images.unsplash.com/photo-1602010143890-8dbfa316b5d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-		celsius: 29,
-		fahrenheit: 84.2
-	};
+	let history = ["", "", "", "", ""];
+	let left: City | null = null;
+	let right: City | null = null;
 
 	const nextTurn = async () => {
 		if (!left || !right) return;
 
 		score++;
 		left = { ...right };
-		right = await getRandomCity();
+		right = (await getCity(history)) ?? null;
 	};
 
 	const start = async () => {
 		score = 0;
-		left = await getRandomCity();
-		right = await getRandomCity();
+		left = (await getCity(history)) ?? null;
+		right = (await getCity(history)) ?? null;
 	};
 
 	const handleHotterClick = async () => {

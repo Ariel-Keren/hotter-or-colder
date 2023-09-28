@@ -205,19 +205,51 @@ const CITIES = [
 	}
 ];
 
-const getRandomCity = async () => {
-	const randomIndex = Math.floor(Math.random() * CITIES.length);
-	const randomCity = CITIES[randomIndex];
+const generateRandomCity = (history: string[]) => {
+	let randomCity;
+	do {
+		const randomIndex = Math.floor(Math.random() * CITIES.length);
+		randomCity = CITIES[randomIndex];
+	} while (history.includes(randomCity.city));
+	return randomCity;
+};
+
+const fetchTemperature = async (city: string) => {
 	const response = await fetch(
-		`http://api.weatherapi.com/v1/current.json?key=${PUBLIC_API_KEY}&q=${randomCity.city}`
+		`http://api.weatherapi.com/v1/current.json?key=${PUBLIC_API_KEY}&q=${city}`
 	);
+	if (!response.ok) return alert("Whoops! Something went wrong.");
+
 	const data = await response.json();
+	const temperature = {
+		celsius: data.current.temp_c as number,
+		fahrenheit: data.current.temp_f as number
+	};
+	return temperature;
+};
+
+const updateHistory = (history: string[], city: string) => {
+	for (let i = history.length - 1; i > 0; i--) {
+		history[i] = history[i - 1];
+	}
+	history[0] = city;
+};
+
+const getCity = async (history: string[]) => {
+	console.log(history);
+
+	const randomCity = generateRandomCity(history);
+
+	const temperature = await fetchTemperature(randomCity.city);
+	if (!temperature) return;
+
+	updateHistory(history, randomCity.city);
+
 	const city: City = {
 		...randomCity,
-		celsius: data.current.temp_c,
-		fahrenheit: data.current.temp_f
+		...temperature
 	};
 	return city;
 };
 
-export default getRandomCity;
+export default getCity;
