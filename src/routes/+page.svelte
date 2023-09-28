@@ -6,12 +6,14 @@
 	import Score from "$lib/components/Score.svelte";
 	import VS from "$lib/components/VS.svelte";
 	import ScoreModal from "$lib/components/ScoreModal.svelte";
+	import PendingCity from "$lib/components/PendingCity.svelte";
 
 	let score = 0;
 	let history = ["", "", "", "", ""];
 	let isScoreModalShown = false;
 	let left: City | null = null;
 	let right: City | null = null;
+	let pending: City | null = null;
 
 	const goToMenu = () => {
 		isScoreModalShown = false;
@@ -20,18 +22,20 @@
 	};
 
 	const nextTurn = async () => {
-		if (!left || !right) return;
+		if (!left || !right || !pending) return;
 
 		score++;
 		left = { ...right };
-		right = (await getCity(history)) ?? null;
+		right = { ...pending };
+		pending = (await getCity(history)) ?? null;
 	};
 
 	const start = async () => {
 		isScoreModalShown = false;
 		score = 0;
-		left = (await getCity(history)) ?? null;
+		left = pending ? { ...pending } : (await getCity(history)) ?? null;
 		right = (await getCity(history)) ?? null;
+		pending = (await getCity(history)) ?? null;
 	};
 
 	const handleHotterClick = async () => {
@@ -56,6 +60,7 @@
 		<LeftCity city={left} />
 		<RightCity city={right} {handleHotterClick} {handleColderClick} />
 	</div>
+	<PendingCity image={pending?.image ?? ""} />
 {:else}
 	<div
 		class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center gap-10 w-full"
