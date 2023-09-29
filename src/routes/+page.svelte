@@ -21,8 +21,6 @@
 	onMount(async () => {
 		pendingStart = await getCity(history);
 		pending = await getCity(history);
-		console.log(pendingStart);
-		console.log(pending);
 	});
 
 	const goToMenu = () => {
