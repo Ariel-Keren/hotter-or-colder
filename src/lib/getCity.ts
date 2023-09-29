@@ -312,7 +312,7 @@ const generateRandomCity = (history: string[]) => {
 
 const fetchTemperature = async (city: string) => {
 	const response = await fetch(
-		`http://api.weatherapi.com/v1/current.json?key=${PUBLIC_API_KEY}&q=${city}`
+		`https://api.weatherapi.com/v1/current.json?key=${PUBLIC_API_KEY}&q=${city}`
 	);
 	if (!response.ok) return alert("Whoops! Something went wrong.");
 
