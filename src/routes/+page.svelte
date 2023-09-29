@@ -8,6 +8,7 @@
 	import ScoreModal from "$lib/components/ScoreModal.svelte";
 	import PendingCity from "$lib/components/PendingCity.svelte";
 	import Head from "$lib/components/Head.svelte";
+	import { onMount } from "svelte";
 
 	let score = 0;
 	let history = ["", "", "", "", ""];
@@ -15,6 +16,14 @@
 	let left: City | null = null;
 	let right: City | null = null;
 	let pending: City | null = null;
+	let pendingStart: City | null = null;
+
+	onMount(async () => {
+		pendingStart = await getCity(history);
+		pending = await getCity(history);
+		console.log(pendingStart);
+		console.log(pending);
+	});
 
 	const goToMenu = () => {
 		isScoreModalShown = false;
@@ -28,15 +37,16 @@
 		score++;
 		left = { ...right };
 		right = { ...pending };
-		pending = (await getCity(history)) ?? null;
+		pending = await getCity(history);
 	};
 
 	const start = async () => {
 		isScoreModalShown = false;
 		score = 0;
-		left = pending ? { ...pending } : (await getCity(history)) ?? null;
-		right = (await getCity(history)) ?? null;
-		pending = (await getCity(history)) ?? null;
+		left = pendingStart ? { ...pendingStart } : await getCity(history);
+		right = pending ? { ...pending } : await getCity(history);
+		pendingStart = await getCity(history);
+		pending = await getCity(history);
 	};
 
 	const handleHotterClick = async () => {
@@ -62,7 +72,9 @@
 		<LeftCity city={left} />
 		<RightCity city={right} {handleHotterClick} {handleColderClick} />
 	</div>
-	<PendingCity image={pending?.image ?? ""} />
+	{#if isScoreModalShown}
+		<ScoreModal {score} {start} {goToMenu} />
+	{/if}
 {:else}
 	<div
 		class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center gap-10 w-full"
@@ -78,6 +90,5 @@
 		>
 	</div>
 {/if}
-{#if isScoreModalShown}
-	<ScoreModal {score} {start} {goToMenu} />
-{/if}
+<PendingCity image={pending?.image ?? ""} />
+<PendingCity image={pendingStart?.image ?? ""} />

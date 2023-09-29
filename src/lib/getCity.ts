@@ -239,7 +239,7 @@ const getCity = async (history: string[]) => {
 	const randomCity = generateRandomCity(history);
 
 	const temperature = await fetchTemperature(randomCity.city);
-	if (!temperature) return;
+	if (!temperature) return null;
 
 	updateHistory(history, randomCity.city);
 
