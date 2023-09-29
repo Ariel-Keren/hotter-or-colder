@@ -202,6 +202,102 @@ const CITIES = [
 		country: "Austria",
 		image:
 			"https://images.unsplash.com/photo-1609856878074-cf31e21ccb6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1340&q=80"
+	},
+	{
+		city: "Cancún",
+		country: "Mexico",
+		image:
+			"https://images.unsplash.com/photo-1510097467424-192d713fd8b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80"
+	},
+	{
+		city: "Berlin",
+		country: "Germany",
+		image:
+			"https://images.unsplash.com/photo-1560969184-10fe8719e047?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+	},
+	{
+		city: "Johor Bahru",
+		country: "Malaysia",
+		image:
+			"https://images.unsplash.com/photo-1521317925431-c2256dd4fe2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+	},
+	{
+		city: "Johannesburg",
+		country: "South Africa",
+		image:
+			"https://images.unsplash.com/photo-1636706519609-988babca3dd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80"
+	},
+	{
+		city: "Ho Chi Minh City",
+		country: "Vietnam",
+		image:
+			"https://images.unsplash.com/photo-1603852452440-b383ac720729?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80"
+	},
+	{
+		city: "Riyadh",
+		country: "Saudi Arabia",
+		image:
+			"https://images.unsplash.com/photo-1570724546132-6a61bb3c3894?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80"
+	},
+	{
+		city: "Venice",
+		country: "Italy",
+		image:
+			"https://images.unsplash.com/photo-1480548004877-593316be2bd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"
+	},
+	{
+		city: "Jaipur",
+		country: "India",
+		image:
+			"https://images.unsplash.com/photo-1602339752474-f77aa7bcaecd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80"
+	},
+	{
+		city: "Madrid",
+		country: "Spain",
+		image:
+			"https://images.unsplash.com/photo-1578305698944-874fa44d04c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1288&q=80"
+	},
+	{
+		city: "Orlando",
+		country: "US",
+		image:
+			"https://images.unsplash.com/photo-1597466599360-3b9775841aec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80"
+	},
+	{
+		city: "Chennai",
+		country: "India",
+		image:
+			"https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+	},
+	{
+		city: "Dublin",
+		country: "Ireland",
+		image:
+			"https://images.unsplash.com/photo-1602797882193-51cb0e037534?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80"
+	},
+	{
+		city: "Florence",
+		country: "Italy",
+		image:
+			"https://images.unsplash.com/photo-1590673452623-cf094b5e08f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1286&q=80"
+	},
+	{
+		city: "Moscow",
+		country: "Russia",
+		image:
+			"https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1349&q=80"
+	},
+	{
+		city: "Athens",
+		country: "Greece",
+		image:
+			"https://images.unsplash.com/photo-1555993539-1732b0258235?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+	},
+	{
+		city: "Cairo",
+		country: "Egypt",
+		image:
+			"https://images.unsplash.com/photo-1572252009286-268acec5ca0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
 	}
 ];
 
